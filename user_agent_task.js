@@ -41,10 +41,16 @@ userAgent = [
 
 function getBrowserAgent(userAgent){
     var output = {
-        deviceType: "",
-        browserName: "",
+        deviceType: 'blah', 
+        browserName: userAgent.match(/\w+/)[0]
 
     }
 
-    return output
+    return output.deviceType
 }
+
+// deviceType : “desktop/tablet/mobile/bot”,
+// browserName : “Chrome/FF/Safari /bot etc”
+
+// deviceType:desktop 
+// browserName: chrome 
