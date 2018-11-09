@@ -11,3 +11,5 @@ browserName : “Chrome/FF/Safari /bot etc”
 
 The task is of moderate difficulty but will give you more than enough to be comfortable with the day-to-day activities. The use of positive/negative lookahead here is a must. Being able to identify capturing groups is a must as well. Feel free to browse for solutions but since you can use regexr.com you should be able to complete it without looking into someone else’s  code.
  
+ user regexr //gim
+ match pattern not words 

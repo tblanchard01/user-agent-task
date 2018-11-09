@@ -39,3 +39,12 @@ userAgent = [
     "AdsBot-Google (+http://www.google.com/adsbot.html)"
 ]
 
+function getBrowserAgent(userAgent){
+    var output = {
+        deviceType: "",
+        browserName: "",
+
+    }
+
+    return output
+}
