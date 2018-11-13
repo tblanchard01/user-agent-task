@@ -1,4 +1,6 @@
-//look at user agent strings. 
+//look at user agent strings. \
+
+//desktop 
 
 userAgent = [
     "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136",
@@ -9,7 +11,11 @@ userAgent = [
     "Mozilla/4.0 (compatible; MSIE 8.0; X11; Linux x86_64; pl) Opera 11.00",
     "Mozilla/5.0 (Windows NT 6.1; U; en-GB; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6 Opera 10.51",
     // iPhone. iPad, iPod
-    // .....
+
+    "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A465 Safari/8536.25 (3B92C18B-D9DE-4CB7-A02A-22FD2AF17C8F)", //chrome
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10B350 Safari/8536.25", //safari
+    "Mozilla/5.0 (iPod touch; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B511 Safari/9537.53", //safari
+
     //IE
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246",
     "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko",
@@ -36,18 +42,39 @@ userAgent = [
     "Mozilla/5.0 (Linux; Android 5.1; A37f Build/LMY47V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.93 Mobile Safari/537.36",
     "Mozilla/5.0 (Linux; Android 7.1; Mi A1 Build/N2G47H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Safari/537.36",
     // bot
-    "AdsBot-Google (+http://www.google.com/adsbot.html)"
+    "AdsBot-Google (http://www.google.com/adsbot.html)"
 ]
 
-function getBrowserAgent(userAgent){
+function getBrowserAgent(userAgent) {
     var output = {
-        deviceType: 'blah', 
-        browserName: userAgent.match(/\w+/)[0]
-
+        deviceType: null,
+        browserName: "foo"
     }
 
-    return output.deviceType
+    var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Linux x86_64|Windows NT 6\.1|Windows NT 10\.0| Windows NT 6\.0/ig
+    var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|/ig
+    var bot_regex = /bot/ig
+    if (userAgent.match(bot_regex)) {
+        output.deviceType = "bot"
+
+    }
+    else if (userAgent.match(desktop_regex)) {
+        output.deviceType = "desktop"
+    } else if (userAgent.match(mobile_regex)) {
+        output.deviceType = "mobile"
+
+    } else {
+        alert("device type not recognised!")
+    }
+
+
+
+    return output
+
 }
+
+
+
 
 // deviceType : “desktop/tablet/mobile/bot”,
 // browserName : “Chrome/FF/Safari /bot etc”
