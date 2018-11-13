@@ -66,8 +66,22 @@ function getBrowserAgent(userAgent) {
     } else {
         alert("device type not recognised!")
     }
+    if (userAgent.match(bot_regex)) {
+        output.browserName = "bot"
 
+    }
+    else if (userAgent.match(/Chrome/)) {
+        output.browserName = "Chrome"
 
+    } else if (userAgent.match(/Safari/)) {
+        output.browserName = "Safari"
+    } else if (userAgent.match(/MSIE/)) {
+        output.browserName = "Internet Explorer"
+    } else if (userAgent.match(/Firefox/)) {
+        output.browserName = "Firefox"
+    } else {
+        "browser type not recognised"
+    }
 
     return output
 
