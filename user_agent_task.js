@@ -51,7 +51,7 @@ function getBrowserAgent(userAgent) {
         browserName: "foo"
     }
 
-    var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Linux x86_64|Windows NT 6\.1|Windows NT 10\.0| Windows NT 6\.0/ig
+    var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT 6\.1|Windows NT 10\.0| Windows NT 6\.0/ig
     var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|/ig
     var bot_regex = /bot/ig
     if (userAgent.match(bot_regex)) {
