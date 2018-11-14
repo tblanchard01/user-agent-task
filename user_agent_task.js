@@ -79,6 +79,8 @@ function getBrowserAgent(userAgent) {
         output.browserName = "Internet Explorer"
     } else if (userAgent.match(/Firefox/)) {
         output.browserName = "Firefox"
+    } else if (userAgent.match(/Edge/)) {
+        output.browserName = "Edge"
     } else {
         "browser type not recognised"
     }
@@ -86,6 +88,11 @@ function getBrowserAgent(userAgent) {
     return output
 
 }
+
+userAgent.forEach((e, i) => {
+    console.log(i)
+    console.log(getBrowserAgent(e))
+});
 
 
 
