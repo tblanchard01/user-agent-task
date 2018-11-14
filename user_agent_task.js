@@ -86,7 +86,7 @@ function getBrowserAgent(userAgent) {
         output.browserName = "Firefox"
     } else if (userAgent.match(/Edge/)) {
         output.browserName = "Edge"
-    } else if(userAgent.match(/Android/)) {
+    } else if (userAgent.match(/Android/)) {
         output.browserName = "Android"
 
     } else {
