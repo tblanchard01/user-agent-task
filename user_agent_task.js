@@ -52,7 +52,7 @@ function getBrowserAgent(userAgent) {
     }
 
     var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT 6\.1|Windows NT 10\.0| Windows NT 6\.0/ig
-    var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|/ig
+    var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|Mobile|Tablet/ig
     var bot_regex = /bot/ig
     if (userAgent.match(bot_regex)) {
         output.deviceType = "bot"
@@ -70,25 +70,33 @@ function getBrowserAgent(userAgent) {
         output.browserName = "bot"
 
     }
-    else if (userAgent.match(/Chrome/)) {
-        output.browserName = "Chrome"
+    else if (userAgent.match(/Edge/)) {
+        output.browserName = "Edge"
     }
+
+    else if (userAgent.match(/Safari/)) {
+        output.browserName = "Safari"
+
+
+    }
+
+    else if (userAgent.match(/Firefox/)) {
+        output.browserName = "Firefox"
+    }
+
+
     else if (userAgent.match(/Opera/)) {
         output.browserName = "Opera"
 
     }
 
-    else if (userAgent.match(/Safari/)) {
-        output.browserName = "Safari"
-    } else if (userAgent.match(/MSIE|Trident/)) {
+    else if (userAgent.match(/MSIE|Trident/)) {
         output.browserName = "Internet Explorer"
-    } else if (userAgent.match(/Firefox/)) {
-        output.browserName = "Firefox"
-    } else if (userAgent.match(/Edge/)) {
-        output.browserName = "Edge"
+    } else if (userAgent.match(/Chrome/)) {
+        output.browserName = "Chrome"
+
     } else if (userAgent.match(/Android/)) {
         output.browserName = "Android"
-
     } else {
         alert("browser type not recognised")
     }
@@ -99,6 +107,7 @@ function getBrowserAgent(userAgent) {
 
 userAgent.forEach((e, i) => {
     console.log(i)
+    console.log(userAgent[i])
     console.log(getBrowserAgent(e))
 });
 
