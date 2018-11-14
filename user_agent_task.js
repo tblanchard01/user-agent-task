@@ -1,7 +1,3 @@
-//look at user agent strings. \
-
-//desktop 
-
 userAgent = [
     "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
@@ -51,7 +47,7 @@ function getBrowserAgent(userAgent) {
         browserName: "bar"
     }
 
-    var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT 6\.1|Windows NT 10\.0| Windows NT 6\.0/ig
+    var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT|Linux x86_64/ig
     var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|Mobile|Tablet/ig
     var bot_regex = /bot/ig
     if (userAgent.match(bot_regex)) {
@@ -68,12 +64,17 @@ function getBrowserAgent(userAgent) {
     }
     if (userAgent.match(bot_regex)) {
         output.browserName = "bot"
+    } else if (userAgent.match(/BlackBerry/)) {
+        output.browserName = "BlackBerry"
 
     } else if (userAgent.match(/Android/)) {
         output.browserName = "Android"
     }
     else if (userAgent.match(/Edge/)) {
         output.browserName = "Edge"
+    } else if (userAgent.match(/Chrome|CriOS/)) {
+        output.browserName = "Chrome"
+
     }
 
     else if (userAgent.match(/Safari/)) {
@@ -94,9 +95,6 @@ function getBrowserAgent(userAgent) {
 
     else if (userAgent.match(/MSIE|Trident/)) {
         output.browserName = "Internet Explorer"
-    } else if (userAgent.match(/Chrome/)) {
-        output.browserName = "Chrome"
-
     } else {
         alert("browser type not recognised")
     }
