@@ -69,6 +69,8 @@ function getBrowserAgent(userAgent) {
     if (userAgent.match(bot_regex)) {
         output.browserName = "bot"
 
+    } else if (userAgent.match(/Android/)) {
+        output.browserName = "Android"
     }
     else if (userAgent.match(/Edge/)) {
         output.browserName = "Edge"
@@ -95,8 +97,6 @@ function getBrowserAgent(userAgent) {
     } else if (userAgent.match(/Chrome/)) {
         output.browserName = "Chrome"
 
-    } else if (userAgent.match(/Android/)) {
-        output.browserName = "Android"
     } else {
         alert("browser type not recognised")
     }
