@@ -1,3 +1,5 @@
+// convert to .test
+// use +ve and -ve regex
 userAgent = [
     "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.10136",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36",
@@ -42,16 +44,17 @@ userAgent = [
 ]
 
 function getBrowserAgent(userAgent) {
-    var output = {
-        deviceType: "foo",
-        browserName: "bar"
-    }
-
+    var output = {}
     var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT|Linux x86_64/ig
-    var mobile_regex = /iPad|iPhone|iPod|Android|LG|HTC|Blackberry|Phone|Mobile|Tablet/ig
+    var mobile_regex = /iPhone|Android|LG|HTC|Blackberry|Phone|/ig
+    var tablet_regex = /iPad|Android 3\.0|Tablet|iPod/ig
     var bot_regex = /bot/ig
     if (userAgent.match(bot_regex)) {
         output.deviceType = "bot"
+
+    }
+    else if (userAgent.match(tablet_regex)) {
+        output.deviceType = "tablet"
 
     }
     else if (userAgent.match(desktop_regex)) {
