@@ -19,12 +19,7 @@ describe("User agent tests..", function () {
             expect(getBrowserAgent(userAgent).browserName).toEqual('Internet Explorer')
             expect(getBrowserAgent(userAgent).deviceType).toEqual('mobile')
         });
-        it('with Android browser', function () {
-            userAgent = "Mozilla/5.0 (Linux; Android 4.0.4; en-gb; SM-T330 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1"
-            expect(getBrowserAgent(userAgent).deviceType).toEqual('mobile')
-            expect(getBrowserAgent(userAgent).browserName).toEqual('Android')
-        })
-
+        
         
 
     })
@@ -42,6 +37,13 @@ describe("User agent tests..", function () {
             expect(getBrowserAgent(userAgent).browserName).toEqual('Chrome')
 
         });
+
+        it('with Android browser', function () {
+            userAgent = "Mozilla/5.0 (Linux; Android 4.0.4; en-gb; SM-T330 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1"
+            expect(getBrowserAgent(userAgent).deviceType).toEqual('tablet')
+            expect(getBrowserAgent(userAgent).browserName).toEqual('Android')
+        })
+
     })
 
 
