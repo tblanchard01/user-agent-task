@@ -67,7 +67,7 @@ function getBrowserAgent(userAgent) {
         output.browserName = "bot"
     } else if (userAgent.match(/BlackBerry/)) {
         output.browserName = "BlackBerry"
-
+///////////
     } else if (userAgent.match(/Android/)) {
         output.browserName = "Android"
     }
