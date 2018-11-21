@@ -63,11 +63,11 @@ function getBrowserAgent(userAgent) {
     } else {
         alert("device type not recognised!")
     }
+    /////........///////////////
     if (userAgent.match(bot_regex)) {
         output.browserName = "bot"
     } else if (userAgent.match(/BlackBerry/)) {
         output.browserName = "BlackBerry"
-///////////
     } else if (userAgent.match(/Android/)) {
         output.browserName = "Android"
     }
@@ -118,3 +118,5 @@ userAgent.forEach((e, i) => {
 
 // deviceType:desktop 
 // browserName: chrome 
+
+/chrome(?!.*edge)|edge/i
