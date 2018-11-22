@@ -120,3 +120,5 @@ userAgent.forEach((e, i) => {
 // browserName: chrome 
 
 /chrome(?!.*edge)|edge/i
+
+// /chrome(?!.*edge|.*safari)|Edge|Safari|Firefox|Opera|Internet Explorer|/i
