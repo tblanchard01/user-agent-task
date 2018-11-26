@@ -90,4 +90,7 @@ describe("User agent tests..", function () {
     })
 })
 
-// "Mozilla/5.0 (Windows NT 6.1; U; en-GB; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6 Opera 10.51"
+
+
+//chrome(?!.*edge|.*safari)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|Android|BlackBerry|IEMobile
+//chrome(?!.*edge|.*safari)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|Android|BlackBerry|IEMobile|CriOS

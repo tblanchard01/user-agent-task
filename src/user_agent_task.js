@@ -48,9 +48,9 @@ function getBrowserAgent(userAgent) {
     var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT|Linux x86_64/ig
     var mobile_regex = /iPhone|Android 3\.0|LG|HTC|Blackberry|Phone|/ig
     var tablet_regex = /iPad|Android 4\.0\.4|Tablet|iPod/ig
-    var bot_regex = /bot/ig
+    var browser_regex = /chrome(?!.*edge)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|Android|BlackBerry|IEMobile|CriOS|bot/
     // "Mozilla/5.0 (Linux; Android 4.0.4; en-gb; SM-T330 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1
-    if (userAgent.match(bot_regex)) {
+    if (userAgent.match(/bot/ig)) {
         output.deviceType = "bot"
     }
     else if (userAgent.match(tablet_regex)) {
@@ -63,40 +63,45 @@ function getBrowserAgent(userAgent) {
     } else {
         alert("device type not recognised!")
     }
+
+if(userAgent.match(browser_regex)){
+    output.browserName = userAgent.match(browser_regex)[0]
+}
+
     /////........///////////////
-    if (userAgent.match(bot_regex)) {
-        output.browserName = "bot"
-    } else if (userAgent.match(/BlackBerry/)) {
-        output.browserName = "BlackBerry"
-    } else if (userAgent.match(/Android/)) {
-        output.browserName = "Android"
-    }
-    else if (userAgent.match(/Edge/)) {
-        output.browserName = "Edge"
-    } else if (userAgent.match(/Chrome|CriOS/)) {
-        output.browserName = "Chrome"
+    // if (userAgent.match(bot_regex)) {
+    //     output.browserName = "bot"
+    // } else if (userAgent.match(/BlackBerry/)) {
+    //     output.browserName = "BlackBerry"
+    // } else if (userAgent.match(/Android/)) {
+    //     output.browserName = "Android"
+    // }
+    // else if (userAgent.match(/Edge/)) {
+    //     output.browserName = "Edge"
+    // } else if (userAgent.match(/Chrome|CriOS/)) {
+    //     output.browserName = "Chrome"
 
-    }
+    // }
 
-    else if (userAgent.match(/Safari/)) {
-        output.browserName = "Safari"
-
-
-    }
-
-    else if (userAgent.match(/Firefox/)) {
-        output.browserName = "Firefox"
-    }
+    // else if (userAgent.match(/Safari/)) {
+    //     output.browserName = "Safari"
 
 
-    else if (userAgent.match(/Opera/)) {
-        output.browserName = "Opera"
+    // }
 
-    }
+    // else if (userAgent.match(/Firefox/)) {
+    //     output.browserName = "Firefox"
+    // }
 
-    else if (userAgent.match(/MSIE|Trident/)) {
-        output.browserName = "Internet Explorer"
-    } else {
+
+    // else if (userAgent.match(/Opera/)) {
+    //     output.browserName = "Opera"
+
+    // }
+
+    // else if (userAgent.match(/MSIE|Trident/)) {
+    //     output.browserName = "Internet Explorer"
+     else {
         alert("browser type not recognised")
     }
 
@@ -119,6 +124,7 @@ userAgent.forEach((e, i) => {
 // deviceType:desktop 
 // browserName: chrome 
 
-/chrome(?!.*edge)|edge/i
 
-// /chrome(?!.*edge|.*safari)|Edge|Safari|Firefox|Opera|Internet Explorer|/i
+
+//chrome(?!.*edge|.*safari)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|Android|BlackBerry|IEMobile|CriOS
+
