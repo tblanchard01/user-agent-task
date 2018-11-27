@@ -48,7 +48,7 @@ function getBrowserAgent(userAgent) {
     var desktop_regex = /AppleWebKit\/537\.36|Mac OS X 10_14_0|Intel Mac OS X 10\.13|Intel Mac OS X 10_14|Ubuntu\/10\.10|Ubuntu|Windows NT|Linux x86_64/ig
     var mobile_regex = /iPhone|Android 3\.0|LG|HTC|Blackberry|Phone|/ig
     var tablet_regex = /iPad|Android 4\.0\.4|Tablet|iPod/ig
-    var browser_regex = /chrome(?!.*edge)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|Android|BlackBerry|IEMobile|CriOS|bot/
+    var browser_regex = /chrome(?!.*edge)|Edge|Safari(?!.*edge|.*android)|Firefox|Opera|Internet Explorer|MSIE|Android|BlackBerry|IEMobile|CriOS|bot/i
     // "Mozilla/5.0 (Linux; Android 4.0.4; en-gb; SM-T330 Build/IMM76D) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1
     if (userAgent.match(/bot/ig)) {
         output.deviceType = "bot"
@@ -61,7 +61,7 @@ function getBrowserAgent(userAgent) {
     } else if (userAgent.match(mobile_regex)) {
         output.deviceType = "mobile"
     } else {
-        alert("device type not recognised!")
+        console.log("device type not recognised!")
     }
 
 if(userAgent.match(browser_regex)){
@@ -102,7 +102,7 @@ if(userAgent.match(browser_regex)){
     // else if (userAgent.match(/MSIE|Trident/)) {
     //     output.browserName = "Internet Explorer"
      else {
-        alert("browser type not recognised")
+        console.log("browser type not recognised")
     }
 
     return output

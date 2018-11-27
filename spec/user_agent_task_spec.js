@@ -16,7 +16,7 @@ describe("User agent tests..", function () {
 
         it('with MSIE browser', function () {
             userAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows mobile OS 7.5; Trident/5.0; IEMobile/9.0)"
-            expect(getBrowserAgent(userAgent).browserName).toEqual('Internet Explorer')
+            expect(getBrowserAgent(userAgent).browserName).toEqual('MSIE')
             expect(getBrowserAgent(userAgent).deviceType).toEqual('mobile')
         });
         
@@ -34,7 +34,7 @@ describe("User agent tests..", function () {
         it('with Chrome browser', function () {
             userAgent = "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) CriOS/30.0.1599.12 Mobile/11A465 Safari/8536.25 (3B92C18B-D9DE-4CB7-A02A-22FD2AF17C8F)"
             expect(getBrowserAgent(userAgent).deviceType).toEqual('tablet')
-            expect(getBrowserAgent(userAgent).browserName).toEqual('Chrome')
+            expect(getBrowserAgent(userAgent).browserName).toEqual('CriOS')
 
         });
 
@@ -59,7 +59,7 @@ describe("User agent tests..", function () {
         it('with MSIE browser', function () {
             userAgent = "Mozilla/5.0 (compatible, MSIE 11, Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko"
             expect(getBrowserAgent(userAgent).deviceType).toEqual('desktop')
-            expect(getBrowserAgent(userAgent).browserName).toEqual('Internet Explorer')
+            expect(getBrowserAgent(userAgent).browserName).toEqual('MSIE')
         });
 
         it('with Edge browser', function () {
